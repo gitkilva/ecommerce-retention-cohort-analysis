@@ -1,4 +1,4 @@
-# Analysis Notes
+# Cohort Analysis - Insights & Notes
 
 ## Objective
 Analyze customer retention and revenue behavior using cohort analysis to understand lifecycle patterns and long term value.
