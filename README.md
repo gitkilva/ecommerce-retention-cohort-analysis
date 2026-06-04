@@ -57,12 +57,19 @@ Built core cohort datasets using SQL:
 ## Project Structure
 
 ecommerce-retention-cohort-analysis/
+
 │
+
 ├── data/                  # Raw datasets
+
 ├── sql/                   # SQL queries for cohort analysis
+
 ├── python/                # Jupyter notebook (EDA & analysis)
+
 ├── documentation/         # Insights and analysis notes
+
 ├── dashboard/             # Power BI dashboard (to be added)
+
 └── README.md
 
 ---
