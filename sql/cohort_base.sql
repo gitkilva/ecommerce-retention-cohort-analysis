@@ -9,23 +9,25 @@
 
 WITH orders_clean AS (
     SELECT
-        customer_id,
-        DATE_TRUNC('month', order_date) AS order_month,
-        revenue
-    FROM orders
+        c.customer_unique_id,
+        DATE_TRUNC('month', o.order_date) AS order_month,
+        o.revenue
+    FROM orders o
+    JOIN customers c
+        ON o.customer_id = c.customer_id
 ),
 
 first_purchase AS (
     SELECT
-        customer_id,
+        customer_unique_id,
         MIN(order_month) AS cohort_month
     FROM orders_clean
-    GROUP BY customer_id
+    GROUP BY customer_unique_id
 ),
 
 cohort_base AS (
     SELECT
-        o.customer_id,
+        o.customer_unique_id,
         o.order_month,
         f.cohort_month,
         DATE_DIFF(
@@ -36,7 +38,7 @@ cohort_base AS (
         o.revenue
     FROM orders_clean o
     JOIN first_purchase f
-        ON o.customer_id = f.customer_id
+        ON o.customer_unique_id = f.customer_unique_id
 )
 
 SELECT *
