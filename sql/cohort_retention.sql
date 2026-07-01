@@ -1,2 +1,0 @@
--- Customer Retention and Cohort Analysis
--- SQL logic will be added step by step
